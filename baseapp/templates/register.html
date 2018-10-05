@@ -1,0 +1,32 @@
+{% import "bootstrap/wtf.html" as wtf %}
+{% extends 'base.html' %}
+{% block title %}Users{% endblock %}
+{% block content %}
+<div class="container">
+	<div class="col-lg-6">
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+				Registration Form
+			</div>
+			<div class="panel-body">
+				<form method="POST" action="/user/add">
+					<div class="form-group">
+						{{ form.hidden_tag() }}
+						{{ wtf.form_field(form.username) }}
+					</div>
+					<div class="form-group">
+						{{ wtf.form_field(form.email)}}
+					</div>
+					<div class="form-group">
+						{{ wtf.form_field(form.password) }}
+					</div>
+					<div class="form-group">
+						{{ wtf.form_field(form.pwconfirm) }}
+					</div>
+					<button type="submit" class="btn btn-primary">Submit</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}
