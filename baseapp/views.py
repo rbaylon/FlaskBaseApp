@@ -27,7 +27,7 @@ def users(page_num):
     if not current_user.admin:
         abort(401)
 
-    users = Users.query.paginate(per_page=3, page=page_num, error_out=True)
+    users = Users.query.paginate(per_page=100, page=page_num, error_out=True)
     return render_template('users.html', username=current_user.username, users=users)
 
 @app.route("/user/<int:user_id>", methods=["GET", "POST"])
