@@ -11,12 +11,10 @@ flask-login = "*"
 flask-restful = "*"
 wtforms-sqlalchemy = "*"
 wtforms = "*"
-flask-bcrypt = "*"
 flask-migrate = "*"
 flask-script = "*"
 flask-wtf = "*"
 "psycopg2" = "==2.7.5"
-timeboard = "*"
 pyjwt = "*"
 
 [dev-packages]
