@@ -88,7 +88,7 @@ def get_one_user(current_user, user_id):
 
 @app.route('/api/user', methods=['POST','PUT','DELETE'])
 @token_required
-def create_user(current_user):
+def crud_user(current_user):
     if not current_user.admin:
         return jsonify({'message' : 'Cannot perform that function!'}), 401
 
