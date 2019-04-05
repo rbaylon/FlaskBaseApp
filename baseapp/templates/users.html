@@ -26,8 +26,13 @@
 																			<td>{{ user.username }}</td>
 																			<td>{{ user.email }}</td>
 																			<td>{{ user.admin }}</td>
-																			<td><a href="/user/{{ user.id }}"><span class="fa fa-edit"></span></a></td>
-																			<td><a href="/user/{{ user.id }}?delete=y"><span class="fa fa-trash"></span></a></td>
+																			{% if user.username == 'admin' %}
+																				<td><span class="fa fa-edit"></span></td>
+																				<td><span class="fa fa-trash"></span></td>
+																			{% else %}
+																				<td><a href="/user/{{ user.id }}"><span class="fa fa-edit"></span></a></td>
+																				<td><a href="/user/{{ user.id }}?delete=y"><span class="fa fa-trash"></span></a></td>
+																			{% endif %}
 																		</tr>
 																	{% endfor %}
                                 </tbody>
