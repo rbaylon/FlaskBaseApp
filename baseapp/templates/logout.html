@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container-fluid">
+{% if errors %}
+  <div class="alert alert-danger" role="alert">
+    <strong>Errors:</strong>
+    <ul class="list-unstyled">
+        {% for err in errors %}
+          <li>{{err}}</li>
+        {% endfor %}
+    </ul>
+    {% if error_reason %}
+        <span>{{error_reason}}</span>
+    {% endif %}
+  </div>
+{% endif %}
+
+{% if success_slo %}
+  <div class="alert alert-success" role="alert">Successfully logged out</div>
+{% endif %}
+</div>
+{% endblock %}

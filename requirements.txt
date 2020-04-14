@@ -1,0 +1,16 @@
+flask
+flask-sqlalchemy
+flask-bootstrap
+flask-login
+flask-restful
+wtforms-sqlalchemy
+wtforms
+flask-migrate
+flask-script
+flask-wtf
+psycopg2
+pyjwt 
+ipaddress 
+flask-wtf-ext
+wtforms_components
+python3-saml
