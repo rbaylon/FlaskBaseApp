@@ -1,0 +1,20 @@
+{% import "bootstrap/wtf.html" as wtf %}
+{% extends 'base.html' %}
+{% block title %}Week Ending Selector{% endblock %}
+{% block content %}
+<div class="container">
+	<div class="col-lg-6">
+		<div class="panel panel-primary">
+			<div class="panel-body">
+                                <form method="POST" enctype="multipart/form-data" action="{{ url_for('preupload') }}">
+					<div class="form-group">
+						{{ form.hidden_tag() }}
+                                                {{ wtf.form_field(form.weekending)}}
+					</div>
+					<button type="submit" class="btn btn-primary">Submit</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

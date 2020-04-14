@@ -2,7 +2,7 @@ from baseapp import app
 from werkzeug.security import check_password_hash
 from baseapp.models import Users
 from baseapp.controllers import UsersController
-from baseapp.forms import LoginForm, RegisterForm, UsersForm, UsersFormEdit
+from baseapp.forms import LoginForm, RegisterForm, UsersForm, UsersFormEdit, UsersFormPassword
 from flask_login import login_user, logout_user, current_user, login_required, LoginManager
 from flask import render_template, request, redirect, url_for, abort
 
@@ -33,7 +33,7 @@ def users(page_num):
 @app.route("/user/<int:user_id>", methods=["GET", "POST"])
 @login_required
 def user(user_id):
-    if not current_user.admin:
+    if not current_user.is_authenticated:
         abort(401)
 
     msg = ""
@@ -82,6 +82,21 @@ def adduser():
 
     return render_template('register.html', form=form)
 
+
+@app.route("/resetpw", methods=["GET", "POST"])
+@login_required
+def reset():
+    form = UsersFormPassword()
+    if form.validate_on_submit():
+        userc = UsersController()
+        user_data = {}
+        user_data['user_id'] = current_user.id
+        user_data['password'] = form.password.data
+        new_user = userc.resetpw(user_data)
+
+        return redirect(url_for('logout'))
+
+    return render_template('resetpw.html', form=form)
 
 @app.route("/login",methods=["GET","POST"])
 def login():

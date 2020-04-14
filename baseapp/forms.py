@@ -24,3 +24,7 @@ class UsersFormEdit(FlaskForm):
     username = StringField('Usersname', validators=[InputRequired(), Length(min=4, max=15)])
     email = StringField('Email', validators=[InputRequired(), Length(max=50), Email()])
     delete = HiddenField('Delete', default='N', validators=[Length(max=1)])
+
+class UsersFormPassword(FlaskForm):
+    password = PasswordField('New Password', validators=[InputRequired(), Length(min=6, max=80),EqualTo('pwconfirm', message='Passwords must match')])
+    pwconfirm = PasswordField('Repeat New Password')

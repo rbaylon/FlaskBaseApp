@@ -33,3 +33,12 @@ class UsersController:
 
         return False
 
+    def resetpw(self, user):
+        existing_user = Users.query.filter_by(id=user['user_id']).first()
+        if existing_user:
+            hashed_password = generate_password_hash(user['password'],method='sha256')
+            existing_user.password = hashed_password
+            db.session.commit()
+            return True
+
+        return False
