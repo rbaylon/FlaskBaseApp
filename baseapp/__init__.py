@@ -8,3 +8,4 @@ db = SQLAlchemy(app)
 Bootstrap(app)
 
 from baseapp import views
+from baseapp import lteview

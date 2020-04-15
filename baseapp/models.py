@@ -8,3 +8,13 @@ class Users(UserMixin, db.Model):
     email = db.Column(db.String(50))
     admin = db.Column(db.Boolean)
 
+class Lte(UserMixin, db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    input = db.Column(db.Integer)
+    archive = db.Column(db.Integer)
+    error = db.Column(db.Integer)
+    drop = db.Column(db.Integer)
+    rdate = db.Column(db.String(10))
+    location = db.Column(db.String(10))
+
+
